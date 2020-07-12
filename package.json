@@ -1,0 +1,35 @@
+{
+  "name": "translate-speech",
+  "version": "1.0.0",
+  "description": "Speak in your native language and get it translated to any language",
+  "main": "dist/server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production webpack --progress",
+    "dev": "webpack-dev-server",
+    "start": "NODE_ENV=production node dist/server/main.js"
+  },
+  "author": "Avanthika Meenakshi",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "marko": "^4.22.0"
+  },
+  "devDependencies": {
+    "@marko/webpack": "^6.0.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "marko-loader": "^1.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^9.0.2",
+    "spawn-server-webpack-plugin": "^4.0.2",
+    "svg-url-loader": "^6.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
