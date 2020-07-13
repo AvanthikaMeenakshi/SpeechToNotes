@@ -93,8 +93,22 @@ function compiler(config) {
           loader: "@marko/webpack/loader",
         },
         {
-          test: /\.(scss|css)$/,
-          use: [CSSExtractPlugin.loader, "css-loader", "sass-loader"],
+          test: /\.(less|css)$/,
+          use: [
+            CSSExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: "less-loader",
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
         },
         {
           test: /\.svg/,

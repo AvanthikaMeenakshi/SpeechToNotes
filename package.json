@@ -24,6 +24,8 @@
     "marko-loader": "^1.5.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^9.0.2",
     "spawn-server-webpack-plugin": "^4.0.2",

@@ -1,0 +1,32 @@
+<div class="row">
+    <button
+        title="Start Recording"
+        on-click("recordNote")
+        class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">settings_voice</i>
+    </button>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <textarea
+            class="materialize-textarea"
+            id="note-textarea"
+            placeholder="Create a new note by typing or using voice recognition."
+            rows="6"
+        ></textarea>
+        <label for="note-textarea">Note transcript</label>
+        <span class="helper-text" ></span>
+    </div>
+</div>
+<button
+    title="Pause Recording"
+    on-click("pauseRecording")
+    class="btn-floating btn-large waves-effect waves-light">
+    <i class="material-icons">pause</i>
+</button>
+<button
+    title="Save Note"
+    on-click("pauseRecording")
+    class="btn-floating btn-large waves-effect waves-light">
+    <i class="material-icons">save</i>
+</button>

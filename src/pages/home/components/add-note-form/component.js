@@ -2,10 +2,14 @@ module.exports = class SpeechRec {
   onCreate() {
     this.state = {
       noteContent: "",
+      helpText: "",
+      isRecording: false
     };
+    console.log("class");
   }
 
   onMount() {
+    console.log("onMount");
     try {
       const SpeechRecognition =
         window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -18,8 +22,6 @@ module.exports = class SpeechRec {
       console.log(e);
     }
 
-    const noteTextarea = document.getElementById("note-textarea");
-    const instructions = document.getElementById("recording-instructions");
     this.voiceRecognition.continuous = true;
     this.voiceRecognition.onresult = (event) => {
         const current = event.resultIndex;
@@ -29,28 +31,31 @@ module.exports = class SpeechRec {
         const mobileRepeatBug = current == 1 && transcript == event.results[0][0].transcript;
         if (!mobileRepeatBug) {
             this.state.noteContent += transcript;
-            noteTextarea.value = this.state.noteContent;
         }
     };
 
     this.voiceRecognition.onstart = () => {
-        console.log("onstart")
-        instructions.textContent = "Voice recognition activated. Try speaking into the microphone.";
+        this.state.helpText =
+          "Voice recognition activated. Try speaking into the microphone.";
+        this.state.isRecording = true;
     };
 
     this.voiceRecognition.onspeechend = () => {
-      instructions.value =
+      this.state.helpText =
         "You were quiet for a while so voice recognition turned itself off.";
+      this.state.isRecording = false;
     };
 
     this.voiceRecognition.onerror = (event) => {
       if (event.error == "no-speech") {
-        instructions.value = "No speech was detected. Try again.";
+        this.state.helpText = "No speech was detected. Try again.";
+        this.state.isRecording = false;
       }
     };
   }
 
   recordNote() {
+    console.log("HERE")
     if (this.state.noteContent.length) {
       this.state.noteContent += " ";
     }
