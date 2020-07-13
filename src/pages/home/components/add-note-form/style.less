@@ -1,0 +1,54 @@
+.input-field textarea:focus + label {
+   color: #FF1744 !important;
+ }
+
+ .input-field textarea:focus {
+   border-bottom: 1px solid #FF1744 !important;
+   box-shadow: 0 1px 0 0 #FF1744!important
+ }
+
+.materialize-textarea{
+    height: calc(100vh - 30%) !important;
+    resize: none !important;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 5px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 5px rgba(173,0,0,0);
+	}
+}
+
+.add-note-container {
+  .recording {
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    border: 0;
+    border-radius: 15px;
+    margin: 18px;
+    outline: none;
+    animation: pulse 1.5s linear infinite;
+  }
+    
+  .toolbar {
+    display: flex;
+    align-items: center;
+    .punctuation-toolbar {
+      transition: all 400ms ease-in-out;
+      flex: 1;
+      a {
+        margin-right: 10px;
+      }
+    }
+    .action-btn {
+      text-transform: capitalize;
+      margin-right: 10px;
+    }
+  }
+}

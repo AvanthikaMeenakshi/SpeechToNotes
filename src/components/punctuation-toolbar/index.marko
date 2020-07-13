@@ -1,0 +1,13 @@
+$ const punctuations = [".", "?", "!", ",", ";", ":", "-", '"'];
+
+<div class="punctuation-toolbar">
+    <if(data.show)>
+        <for|punctuation| of=punctuations>
+            <a on-click(data.onPunctuationAdded, punctuation) class="grey lighten-5 waves-effect waves-light btn">
+                <span class="grey-text text-darken-2">
+                    ${punctuation}
+                </span>
+            </a>
+        </for>
+    </if>
+</div>

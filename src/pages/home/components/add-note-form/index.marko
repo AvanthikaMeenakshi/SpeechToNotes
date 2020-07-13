@@ -1,32 +1,42 @@
-<div class="row">
-    <button
-        title="Start Recording"
-        on-click("recordNote")
-        class="btn-floating btn-large waves-effect waves-light">
-        <i class="material-icons">settings_voice</i>
-    </button>
-</div>
-<div class="row">
-    <div class="input-field col s12">
+$ {
+    const {
+        noteContent,
+        isRecording
+    } = state;
+    
+}
+
+<div class="container add-note-container">
+    <div class="input-field red-text text-accent-3">
         <textarea
             class="materialize-textarea"
             id="note-textarea"
             placeholder="Create a new note by typing or using voice recognition."
             rows="6"
-        ></textarea>
+        >${noteContent}</textarea>
         <label for="note-textarea">Note transcript</label>
-        <span class="helper-text" ></span>
+    </div>
+    <div class="toolbar">
+        <punctuation-toolbar onPunctuationAdded=component.addPunctuation.bind(component) show=isRecording />
+        <if(isRecording)>
+            <div class="recording red accent-3" />
+        </if>
+        <button
+            title="Pause Recording"
+            on-click("recordNote")
+            class="action-btn btn waves-effect waves-light red accent-3">
+            <if(isRecording)>
+                <i class="material-icons left">pause</i> Pause
+            </if>
+            <else>
+                <i class="material-icons left">settings_voice</i> Record note
+            </else>
+        </button>
+        <button
+            title="Save Note"
+            on-click("saveRecording")
+            class="action-btn btn waves-effect waves-light red accent-3">
+            <i class="material-icons left">save</i> Save
+        </button>
     </div>
 </div>
-<button
-    title="Pause Recording"
-    on-click("pauseRecording")
-    class="btn-floating btn-large waves-effect waves-light">
-    <i class="material-icons">pause</i>
-</button>
-<button
-    title="Save Note"
-    on-click("pauseRecording")
-    class="btn-floating btn-large waves-effect waves-light">
-    <i class="material-icons">save</i>
-</button>
